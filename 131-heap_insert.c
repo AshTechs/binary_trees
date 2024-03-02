@@ -23,7 +23,9 @@ heap_t *heap_insert(heap_t **root, int value)
 		leaves -= sub;
 
 	for (bit = 1 << (level - 1); bit != 1; bit >>= 1)
+	{
 		tree = leaves & bit ? tree->right : tree->left;
+	}
 
 		new = binary_tree_node(tree, value);
 	leaves & 1 ? (tree->right = new) : (tree->left = new);
